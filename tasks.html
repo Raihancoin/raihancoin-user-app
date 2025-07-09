@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tasks | RaihanCoin</title>
+  
+<style>
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #f4f4f4;
+}
+.join-squad-bar {
+  background: #ffe082;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+header {
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #004d40;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 0;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+main {
+  padding: 20px;
+  padding-bottom: 80px;
+}
+.card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+</style>
+
+</head>
+<body>
+
+<div class="join-squad-bar">🤝 Join Squad (Telegram)</div>
+<header>
+  <div class="balance">RC: <span id="rc">0</span> | USD: $<span id="usd">0.00</span></div>
+  <div class="profile" onclick="location.href='profile.html'">👤</div>
+</header>
+
+<main>
+  <div class="card">
+    <h3>📺 Watch YouTube</h3>
+    <p>Watch for 30s and earn 2 RC</p>
+    <button onclick="window.open('https://www.youtube.com', '_blank')">Watch</button>
+  </div>
+  <div class="card">
+    <h3>💬 Join Telegram</h3>
+    <p>Join for 20s and earn 10 RC</p>
+    <button onclick="window.open('https://t.me', '_blank')">Join</button>
+  </div>
+</main>
+
+<nav>
+  <a href="index.html">🏠 Home</a>
+  <a href="tasks.html">📝 Tasks</a>
+  <a href="withdraw.html">💸 Withdraw</a>
+  <a href="boost.html">🚀 Boost</a>
+  <a href="profile.html">👤 Profile</a>
+</nav>
+
+</body>
+</html>
