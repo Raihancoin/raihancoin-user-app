@@ -2,61 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Home | RaihanCoin</title>
-  
-<style>
-body {
-  margin: 0;
-  font-family: sans-serif;
-  background: #f4f4f4;
-}
-.join-squad-bar {
-  background: #ffe082;
-  padding: 10px;
-  text-align: center;
-  font-weight: bold;
-}
-header {
-  background: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 16px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #004d40;
-  display: flex;
-  justify-content: space-around;
-  padding: 12px 0;
-}
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 14px;
-}
-main {
-  padding: 20px;
-  padding-bottom: 80px;
-}
-.card {
-  background: white;
-  padding: 20px;
-  margin-bottom: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-</style>
-
+  <title>RaihanCoin - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
 </head>
 <body>
 
-<div class="join-squad-bar">🤝 Join Squad (Telegram)</div>
+<div class="join-squad-bar" onclick="window.location.href='join.html'">🏆 Join Squad (Ranking)</div>
+
 <header>
   <div class="balance">RC: <span id="rc">0</span> | USD: $<span id="usd">0.00</span></div>
   <div class="profile" onclick="location.href='profile.html'">👤</div>
@@ -66,11 +23,15 @@ main {
   <div class="card">
     <h3>🎁 Gift Box</h3>
     <p>Watch ads to unlock gifts and earn RC & USD!</p>
+    <progress id="adProgress" value="0" max="10"></progress>
+    <p id="progressText">0 / 10 ads completed</p>
+    <button onclick="openGift()">Open Gift</button>
   </div>
+
   <div class="card">
     <h3>📺 Watch Ad</h3>
-    <p>Earn 10 RC per ad</p>
-    <button onclick="alert('Ad watched! +10 RC')">Watch Now</button>
+    <p>Earn RC & progress your gift box</p>
+    <button onclick="watchAd()">Watch Now</button>
   </div>
 </main>
 
@@ -78,9 +39,32 @@ main {
   <a href="index.html">🏠 Home</a>
   <a href="tasks.html">📝 Tasks</a>
   <a href="withdraw.html">💸 Withdraw</a>
-  <a href="boost.html">🚀 Boost</a>
-  <a href="profile.html">👤 Profile</a>
+  <a href="referral.html">🤝 Referral</a>
 </nav>
+
+<script>
+  // Dummy ad watch & gift open
+  let adCount = 0;
+  function watchAd() {
+    adCount++;
+    document.getElementById('adProgress').value = adCount;
+    document.getElementById('progressText').innerText = adCount + " / 10 ads completed";
+    if (adCount >= 10) {
+      alert("Gift Box ready to open!");
+    }
+  }
+
+  function openGift() {
+    if (adCount >= 10) {
+      alert("🎁 Gift opened! You earned $0.10 and 100 RC!");
+      adCount = 0;
+      document.getElementById('adProgress').value = 0;
+      document.getElementById('progressText').innerText = "0 / 10 ads completed";
+    } else {
+      alert("Complete 10 ads first.");
+    }
+  }
+</script>
 
 </body>
 </html>
